@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add book</title>
+    <link rel="stylesheet" href="./form-styles.css">
+</head>
+<body>
+    <form id="form" action="">
+        <div class="form item">
+            <label for="author">Author</label>
+            <input type="text" id="author" placeholder="ex: J.R.R.Tolkien" required>
+        </div>
+        <div class="form item">
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="ex: Lord Of The Rings" required>
+        </div>
+        <div class="form item">
+            <label for="nrofpages">Number of pages</label>
+            <input type="number" min="0" value="0" id="nrofpages">
+        </div>
+        <div class="form item">
+            <fieldset>
+                <legend>read status</legend>
+
+                <div>
+                    <input type="radio" id="read">
+                    <label for="read">read</label>
+                </div>
+                <div>
+                    <input type="radio" id="not read">
+                    <label for="not read">not read</label>
+                </div>
+            </fieldset>
+        </div>
+        <div>
+            <label for="category">category</label>
+            <select name="category" id="category" >
+                    <option disabled selected>select an option</option>
+                    <option value="fantasy">fantasy</option>
+                    <option value="classics">classics</option>
+                    <option value="crime">crime</option>
+                    <option value="horror">horror</option>
+                    <option value="comedy">comedy</option>
+                    <option value="other">other...</option>
+            </select>
+        </div>
+    </form>
+</body>
+</html>
