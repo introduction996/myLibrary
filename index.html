@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./form-styles.css">
     <script src="./index.js" defer></script>
 </head>
 <body>
+    <!-- header section -->
     <header id="header">
         <a id="home-link" href="./index.html" aria-label="home link">
             <svg id="booksSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>bookshelf</title><path d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z" /></svg>
@@ -20,13 +22,62 @@
         </ul>
     </header>
 
+    <!-- content section -->
     <section id="content">
         <div class="books"></div>
         <div class="wrapper">
-            <a href="./add-book-form.html">
+            <a>
                 <button id="addBook">addBook</button>
             </a>
         </div>
     </section>
+
+    <!-- add book form modal -->
+    <dialog id="modal">
+        <form id="form" action="">
+            <div class="form item">
+                <label for="author">Author</label>
+                <input type="text" id="author" placeholder="ex: J.R.R.Tolkien" required>
+            </div>
+            <div class="form item">
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="ex: Lord Of The Rings" required>
+            </div>
+            <div class="form item">
+                <label for="nrofpages">Number of pages</label>
+                <input type="number" min="0" value="0" id="nrofpages">
+            </div>
+            <div class="form item read">
+                <fieldset>
+                    <legend>read status</legend>
+    
+                    <div>
+                        <input type="radio" value="read" name="read-status" id="read">
+                        <label for="read">read</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="not-read" name="read-status" id="not read">
+                        <label for="not read">not read</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form item select">
+                <label for="category">Category</label>
+                <select name="category" id="category" >
+                        <option disabled selected>select an option</option>
+                        <option value="fantasy">fantasy</option>
+                        <option value="classics">classics</option>
+                        <option value="crime">crime</option>
+                        <option value="horror">horror</option>
+                        <option value="comedy">comedy</option>
+                        <option value="other">other...</option>
+                </select>
+            </div>
+            <div class="form item button">
+                <button type="submit">addBook</button>
+            </div>
+        </form>
+    </dialog>
+
 </body>
 </html>
