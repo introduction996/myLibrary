@@ -24,7 +24,8 @@
 
     <!-- content section -->
     <section id="content">
-        <div class="books"></div>
+        <div class="books">
+        </div>
         <div class="wrapper">
             <a>
                 <button id="addBook">addBook</button>
@@ -34,29 +35,29 @@
 
     <!-- add book form modal -->
     <dialog id="modal">
-        <form id="form" action="">
+        <form id="form" action="./index.js" method="post">
             <div class="form item">
                 <label for="author">Author</label>
-                <input type="text" id="author" placeholder="ex: J.R.R.Tolkien" required>
+                <input type="text" name="author" id="author" placeholder="ex: J.R.R.Tolkien" required>
             </div>
             <div class="form item">
                 <label for="title">Title</label>
-                <input type="text" id="title" placeholder="ex: Lord Of The Rings" required>
+                <input type="text" name="title" id="title" placeholder="ex: Lord Of The Rings" required>
             </div>
             <div class="form item">
                 <label for="nrofpages">Number of pages</label>
-                <input type="number" min="0" value="0" id="nrofpages">
+                <input type="number" name="nrofpages" min="0" max="10000" id="nrofpages" required>
             </div>
             <div class="form item read">
                 <fieldset>
                     <legend>read status</legend>
     
                     <div>
-                        <input type="radio" value="read" name="read-status" id="read">
+                        <input type="radio" name="readstatus" value="read" name="read-status" id="read" required>
                         <label for="read">read</label>
                     </div>
                     <div>
-                        <input type="radio" value="not-read" name="read-status" id="not read">
+                        <input type="radio" name="readstatus" value="not-read" name="read-status" id="not read" required>
                         <label for="not read">not read</label>
                     </div>
                 </fieldset>
