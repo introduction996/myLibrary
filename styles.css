@@ -101,6 +101,10 @@ button#addBook, button[type="submit"], button.read-toggle {
     box-shadow: 3px 3px 1px green;
 }
 
+button.read-toggle {
+    box-shadow: none;
+}
+
 button#addBook:hover, button[type="submit"]:hover, button.read-toggle:hover {
     cursor: pointer;
     opacity: 80%;
@@ -131,4 +135,32 @@ button#addBook:active, button[type="submit"]:active, button.read-toggle:active {
 .read-toggle {
     width: 60%;
     height: 10%;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 1rem
+}
+
+.delete-card {
+    background-color: transparent;
+    color: red;
+    border: 3px solid red;
+    width: 5rem;
+    height: 3rem;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: background-color, color;
+    transition-duration: 0.1s;
+}
+
+.delete-card:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-card:active {
+    opacity: 60%;
 }

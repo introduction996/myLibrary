@@ -4,7 +4,7 @@
 //make book card from those answers [X]
 
 //be able to change the read status of a card [X]
-//be able to delete a card []
+//be able to delete a card [X]
 //be able to cancel the form []
 
 const myLibrary = [];
@@ -20,6 +20,14 @@ function dataAttribute() {
   return current += 1;
 }
 
+function reviseDataAttrs() {
+  current = 0;
+  for (i of myLibrary) {
+    current += 1;
+    i.dataAttr = String(current);
+  }
+}
+
 //take form answers into an object and put them in the library array
 const form = document.querySelector("form");
 form.addEventListener('submit', (e) => {
@@ -33,14 +41,13 @@ form.addEventListener('submit', (e) => {
   form.reset();
   modal.close();
 
-  libraryShelf.appendChild(drawLibrary(objectFromFormData));
+  libraryShelf.appendChild(drawBook(objectFromFormData));
 });
 
 
-function drawLibrary(obj) {
+function drawBook(obj) {
   const newDiv = document.createElement('div');
   newDiv.setAttribute('class', 'card');
-  newDiv.setAttribute('data-card', obj.dataAttr);
 
   let title, author, pages, readStatus, category;
   title = obj.title;
@@ -53,11 +60,21 @@ function drawLibrary(obj) {
   const toggleReadButton = document.createElement('button');
   toggleReadButton.setAttribute('class', 'read-toggle');
   toggleReadButton.textContent = "toggle read";
-  toggleReadButton.addEventListener('click', (e) => {
+  toggleReadButton.addEventListener('click', () => {
     obj.readstatus == "read" ? obj.readstatus = "not read" : obj.readstatus = "read";
     obj.readstatus == "read" ? obj.readStatusColor = "green" : obj.readStatusColor = "red";
     libraryShelf.removeChild(libraryShelf.children[obj.dataAttr - 1]);
-    libraryShelf.insertBefore(drawLibrary(obj), libraryShelf.childNodes[obj.dataAttr]);
+    libraryShelf.insertBefore(drawBook(obj), libraryShelf.childNodes[obj.dataAttr]);
+    reviseDataAttrs();
+  });
+
+  const deleteCardButton = document.createElement('button');
+  deleteCardButton.setAttribute('class', 'delete-card');
+  deleteCardButton.textContent = "X";
+  deleteCardButton.addEventListener('click', () => {
+    libraryShelf.removeChild(libraryShelf.children[obj.dataAttr - 1]);
+    myLibrary.splice(myLibrary.indexOf(obj), 1);
+    reviseDataAttrs();
   });
 
 
@@ -67,8 +84,13 @@ function drawLibrary(obj) {
   `<h4 class="card-category">Category: ${category}</h4>` +
   `<h4 class="card-read">Reading status: <span style="color: ${readStatusColor}">${readStatus}</span></h4></div>`;
 
+  const cardButtons = document.createElement('div');
+  cardButtons.setAttribute('class', 'card-buttons');
+  cardButtons.appendChild(toggleReadButton);
+  cardButtons.appendChild(deleteCardButton);
+
   newDiv.innerHTML = cardMarkup;
-  newDiv.appendChild(toggleReadButton);
+  newDiv.appendChild(cardButtons);
 
   return newDiv
 }
