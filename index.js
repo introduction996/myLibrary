@@ -94,3 +94,8 @@ function drawBook(obj) {
 
   return newDiv
 }
+
+const closeFormButton = document.querySelector('#close-form');
+closeFormButton.addEventListener('click', () => {
+  modal.close();
+});

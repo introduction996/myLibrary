@@ -1,18 +1,20 @@
 :root {
     --modal-width: 30rem;
-    --modal-height: 40rem;
+    --modal-height: 42rem;
 }
 
 #modal {
     width: var(--modal-width);
     height: var(--modal-height);
+    background-color: var(--dark-beige);
     left: 40%;
     top: 10%;
     border-radius: 2rem;
+    padding: 1rem;
 }
 
 form {
-    height: 100%;
+    height: 90%;
     width: 100%;
 
     display: flex;
@@ -70,4 +72,28 @@ select {
     width: 8rem;
     height: 2rem;
     border-radius: 0.5rem;
+}
+
+#close-form {
+    display: block;
+    margin-left: auto;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: transparent;
+    color: red;
+    font-weight: 600;
+    transition: color, border-radius, background-color;
+    transition-duration: 0.18s;
+}
+
+#close-form:hover {
+    color: white;
+    background-color: red;
+    cursor: pointer;
+}
+
+#close-form:active {
+    opacity: 60%;
+    border-radius: 30%;
 }

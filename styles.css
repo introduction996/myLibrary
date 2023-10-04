@@ -46,6 +46,10 @@ li > a {
     font-weight: 600;
 }
 
+li > a:hover {
+    text-decoration: underline;
+}
+
 #booksSVG {
     height: 7rem;
     fill: white
